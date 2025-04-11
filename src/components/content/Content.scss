@@ -1,0 +1,40 @@
+.content {
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    margin-left: 20px;
+    padding: 20px 30px;
+    background: linear-gradient(145deg, #0f0f2d, #191945);
+    border-radius: 20px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+    &__header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    &__main {
+        overflow-y: auto;
+    }
+}
+
+// Media
+
+@media (max-width: 1200px) {
+    .content {
+        padding: 20px;
+    }
+}
+
+@media (max-width: 992px) {
+    .content {
+        margin-left: 0;
+        &__header {
+            padding: 0 10px;
+            border-radius: 20px;
+            background: linear-gradient(145deg, #0b0b22, #151539);
+        }
+    }
+}

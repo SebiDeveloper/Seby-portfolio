@@ -1,0 +1,16 @@
+.section {
+    &__title {
+        margin: 0;
+        color: rgb(255, 255, 255);
+        font-family: Poppins;
+        font-size: 25px;
+        font-weight: 500;
+        line-height: 38px;
+    }
+    &__line {
+        margin: 20px 0;
+        width: 40px;
+        height: 0;
+        border: 3px solid rgb(112, 130, 241);
+    }
+}

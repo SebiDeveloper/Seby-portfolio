@@ -1,0 +1,121 @@
+.about {
+    overflow-y: hidden;
+    &__description {
+      margin: 22px auto 0 auto;
+      color: rgb(255, 255, 255);
+      font-family: "Poppins", sans-serif;
+      font-size: 18px;
+      font-weight: 400;
+      line-height: 30px;
+    }
+    &__subtitle {
+      margin-top: 30px;
+      color: rgb(255, 255, 255);
+      font-family: "Poppins", sans-serif;
+      font-size: 22px;
+      font-weight: 500;
+      line-height: 30px;
+    }
+    &__swiper {
+      width: 100%;
+    }
+    .swiper-slide {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: auto;
+    }
+    .swiper-pagination {
+      margin-top: 15px;
+      position: static !important; 
+      text-align: center;
+    }
+    .swiper-pagination-bullet {
+      width: 20px;
+      height: 20px;
+      text-align: center;
+      line-height: 20px;
+      font-size: 12px;
+      color: #000;
+      opacity: 1;
+      background: rgba(242, 241, 241, 0.2);
+    }
+    .swiper-pagination-bullet-active {
+      color: #fff;
+      background: #6e44ff;
+    }
+    &__block {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      justify-content: center;
+      gap: 20px;
+      padding: 20px;
+    }
+    &__card {
+      display: flex;
+      height: 75px;
+      align-items: center;
+      background: #191945;
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+      color: white;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      &:hover {
+        cursor: pointer;
+        transform: translateY(-5px);
+        box-shadow: 0 12px 20px rgba(0, 0, 0, 0.2);
+      }
+    }
+    &__icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 50px;
+      height: 50px;
+      font-size: 20px;
+      font-weight: bold;
+      color: #6e44ff;
+      background: white;
+      border-radius: 50%;
+      margin-right: 15px;
+    }
+    &__title {
+      font-family: "Poppins", sans-serif;
+      font-size: 18px;
+      font-weight: 600;
+    }
+
+    // Media queries
+  
+    @media (max-width: 992px) {
+      &__card:hover {
+        transform: none !important;
+        box-shadow: none !important;
+      }
+    }
+  
+    @media (max-width: 768px) {
+      &__block {
+        padding: 0;
+      }
+      &__title {
+        font-size: 16px;
+      }
+    }
+  
+    @media (max-width: 576px) {
+      &__description {
+        font-size: 16px;
+      }
+      &__block {
+        grid-template-columns: 1fr;
+      }
+      &__card {
+        padding: 10px;
+      }
+      &__title {
+        font-size: 14px;
+      }
+    }
+  }

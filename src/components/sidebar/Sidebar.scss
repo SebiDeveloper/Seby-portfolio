@@ -1,0 +1,158 @@
+.sidebar {
+    width: 300px;
+    background: linear-gradient(145deg, #0f0f2d, #191945);
+    border-radius: 20px;
+    color: #fff;
+    padding: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+    overflow-y: auto;
+    &__profile {
+      text-align: center;
+    }
+    &__profile-image {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 15px;
+      border: 3px solid #6e44ff;
+    }
+    &__profile-name {
+        font-family: Poppins;
+        font-size: 36px;
+        font-weight: 500;
+        line-height: 27px;
+    }
+    &__profile-role {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 10px;
+      border-radius: 10px;
+      font-family: Poppins;
+      font-size: 20px;
+      font-weight: 600;
+      line-height: 21px;
+    }
+    &__line {
+        width: 220px;
+        height: 0;
+        margin: 30px auto;
+        border: 2px solid rgb(91, 67, 115);
+    }
+    &__block {
+        display: none;
+        margin: 20px auto 0 auto;
+        width: 220px;
+        height: 74px;
+    }
+    &__info {
+        margin-bottom: 10px;
+        &:last-child {
+            margin-bottom: 0;
+        }
+        &-label, &-value {
+            font-family: Poppins;
+            font-size: 16px;
+            font-weight: 500;
+        }
+        &-value {
+            margin-left: 10px;
+        }
+    }
+    &__icons {
+        width: 48px;
+        height: 48px;
+        transition: transform 0.3s ease, filter 0.3s ease;
+        &:hover {
+            cursor: pointer;
+            transform: scale(1.2);
+            filter: drop-shadow(0px 4px 6px rgba(255, 255, 255, 0.3)); 
+        }
+    }
+    &__img {
+        display: flex;
+        justify-content: space-evenly;
+        &:nth-child(3) {
+            margin-top: 20px;
+        }
+    }
+    &__title {
+        color: rgba(255, 255, 255, 0.5);
+        font-family: Poppins;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 18px;
+    }
+    &__contact {
+        margin-top: 50px;
+        &-title {
+            color: rgba(255, 255, 255, 0.5);
+            font-family: Poppins;
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 18px;
+        }
+        &-link {
+            position: relative;
+            display: inline-block;
+            &::after {
+                content: attr(data-name); // Afișează valoarea atributului `data-name`
+                position: absolute;
+                bottom: -25px;
+                left: 50%;
+                transform: translateX(-50%);
+                background: rgba(0, 0, 0, 0.8);
+                color: white;
+                font-size: 12px;
+                padding: 4px 8px;
+                border-radius: 5px;
+                white-space: nowrap;
+                opacity: 0;
+                transition: opacity 0.3s ease, transform 0.3s ease;
+            }
+            &:hover::after {
+                opacity: 1;
+                transform: translateX(-50%) translateY(-5px);
+            }
+        }
+        &-icons {
+            width: 48px;
+            height: 48px;
+            transition: transform 0.3s ease, filter 0.3s ease;
+            &:hover {
+                cursor: pointer;
+                transform: scale(1.2);
+                filter: drop-shadow(0px 4px 6px rgba(255, 255, 255, 0.3)); 
+            }
+        }
+        &-block {
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+        }
+    }
+    &__hidden {
+        display: none;
+    }
+    &__visible {
+        display: block;
+    }
+
+    // Media
+    @media (max-width: 1200px) {
+        height: 100vh;
+        width: 240px;
+        &__profile {
+            &-name {
+                font-size: 32px;
+            }
+            &-role {
+                font-size: 18px;
+            }
+        }
+    }
+
+    @media (max-width: 992px) {
+        display: none;
+    }
+}
