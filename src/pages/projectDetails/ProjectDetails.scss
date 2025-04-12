@@ -5,6 +5,10 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    &__not-found {
+        padding: 40px 20px;
+        text-align: center;
+    }
     &__button {
         display: flex;
         justify-content: center;
@@ -12,6 +16,7 @@
         position: absolute;
         top: 0;
         left: 0;
+        margin-bottom: 20px;
         width: 50px;
         height: 50px;
         border-radius: 100%;
