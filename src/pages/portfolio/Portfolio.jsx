@@ -132,7 +132,7 @@ const Portfolio = () => {
             {filteredProjects.map((item) => (
               <SwiperSlide key={item.id}>
                 <Link
-                  to={`/project/${item.id}`}
+                  to={`/project/${item.slug}`}
                   className="portfolio__item"
                 >
                   <div
