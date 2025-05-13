@@ -5,6 +5,7 @@ import pulse from "../../assets/images/portfolio/pulse.jpg";
 import woman from "../../assets/images/portfolio/Woman.jpg";
 import window from "../../assets/images/portfolio/window.jpg";
 import marvel from "../../assets/images/portfolio/marvel.jpg";
+import productCatalog from "../../assets/images/portfolio/productCatalog.png";
 
 // icons
 
@@ -59,6 +60,15 @@ const portfolioData = [
       image: marvel,
       technologies: [html, scss, js, react],
       link: "https://sebi-developer-github-io.vercel.app/",
+    },
+    {
+      id: 6,
+      title: "Product Catalog",
+      slug: "product-catalog-multiple-page-application",
+      category: "Web applications",
+      image: productCatalog,
+      technologies: [html, scss, js, react],
+      link: "https://product-catalog-gilt.vercel.app/",
     },
   ];
   
