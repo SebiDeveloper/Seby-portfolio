@@ -30,7 +30,7 @@ const Resume = () => {
         <h3 className="resume__subtitle">🛠️ Skills & Technologies</h3>
         <ul className="resume__skills">
           <li><strong>Languages:</strong> HTML5, CSS3, JavaScript (ES6+)</li>
-          <li><strong>Frameworks & Libraries:</strong> React.js, SCSS, Bootstrap</li>
+          <li><strong>Frameworks & Libraries:</strong> React.js, TypeScript, SCSS, Bootstrap, ant Design</li>
           <li><strong>Tools:</strong> Git & GitHub, npm, Vite, VS Code, Figma</li>
           <li><strong>Concepts:</strong> Responsive Design, Flexbox, CSS Grid, React Hooks, React Router</li>
           <li><strong>Soft Skills:</strong> Problem-solving, attention to detail, time management, continuous learning</li>

@@ -5,13 +5,15 @@ import Figma from "../../assets/images/sidebar/icons/Figma.svg";
 import HTML from "../../assets/images/sidebar/icons/HTML.svg";
 import CSS from "../../assets/images/sidebar/icons/CSS.svg";
 import SCSS from "../../assets/images/sidebar/icons/SCSS.svg";
-import JS from "../../assets/images/sidebar/icons/JS.svg"
+import JS from "../../assets/images/sidebar/icons/JS.svg";
 import React from "../../assets/images/sidebar/icons/React.svg";
 import GIT from "../../assets/images/sidebar/icons/GIT.svg";
-import GitHub from "../../assets/images/sidebar/icons/GitHub.svg"
+import GitHub from "../../assets/images/sidebar/icons/GitHub.svg";
 import Instagram from "../../assets/images/sidebar/icons/Instagram.svg";
 import Facebook from "../../assets/images/sidebar/icons/Facebook.svg";
 import Telegram from "../../assets/images/sidebar/icons/Telegram.svg";
+import TypeScript from "../../assets/images/sidebar/icons/typescript.svg";
+import antDesign from "../../assets/images/sidebar/icons/antDesign.svg";
 
 import "./Sidebar.scss";
 
@@ -57,10 +59,12 @@ const Sidebar = () => {
                     <img src={CSS} alt="CSS" className="sidebar__icons"/>
                     <img src={JS} alt="JS" className="sidebar__icons"/>
                     <img src={SCSS} alt="SCSS" className="sidebar__icons"/>
+                    <img src={antDesign} alt="antDesign" className="sidebar__icons"/>
                 </div>
 
                 <div className="sidebar__img">
                     <img src={React} alt="React" className="sidebar__icons"/>
+                    <img src={TypeScript} alt="TypeScript" className="sidebar__icons"/>
                     <img src={Figma} alt="Figma" className="sidebar__icons"/>
                     <img src={GIT} alt="GIT" className="sidebar__icons"/>
                     <img src={GitHub} alt="GitHub" className="sidebar__icons"/>

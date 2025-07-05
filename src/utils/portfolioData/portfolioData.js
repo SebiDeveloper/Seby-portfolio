@@ -6,14 +6,16 @@ import woman from "../../assets/images/portfolio/Woman.jpg";
 import window from "../../assets/images/portfolio/window.jpg";
 import marvel from "../../assets/images/portfolio/marvel.jpg";
 import productCatalog from "../../assets/images/portfolio/productCatalog.png";
+import crypto from "../../assets/images/portfolio/Crypto.png";
 
 // icons
 
 import html from "../../assets/images/sidebar/icons/HTML.svg";
 import css from "../../assets/images/sidebar/icons/CSS.svg";
 import scss from "../../assets/images/sidebar/icons/SCSS.svg";
-import js from "../../assets/images/sidebar/icons/JS.svg";
+import js from "../../assets/images/sidebar/icons/JS.svg"; 
 import react from "../../assets/images/sidebar/icons/React.svg";
+import antDesign from "../../assets/images/sidebar/icons/antDesign.svg";
 
 const portfolioData = [
     {
@@ -22,7 +24,7 @@ const portfolioData = [
       slug: "woman-landing-page",  //
       category: "Websites",
       image: woman,
-      technologies: [html, scss, js],
+      technologies: [html, scss, js, antDesign],
       link: "https://picture-lime.vercel.app/",
     },
     {
@@ -70,6 +72,15 @@ const portfolioData = [
       technologies: [html, scss, js, react],
       link: "https://product-catalog-gilt.vercel.app/",
     },
+    {
+      id: 7,
+      title: "Crypto",
+      slug: "crypto-single-page-application",
+      category: "Web applications",
+      image: crypto,
+      technologies: [html, antDesign, js, react],
+      link: "https://crypto-app-fiow.vercel.app/",
+    }
   ];
   
   export default portfolioData;
