@@ -1,22 +1,8 @@
 import { useLocation } from "react-router-dom";
 
-import I from "../../assets/images/sidebar/I.jpg";
-import Figma from "../../assets/images/sidebar/icons/Figma.svg";
-import HTML from "../../assets/images/sidebar/icons/HTML.svg";
-import CSS from "../../assets/images/sidebar/icons/CSS.svg";
-import SCSS from "../../assets/images/sidebar/icons/SCSS.svg";
-import JS from "../../assets/images/sidebar/icons/JS.svg";
-import React from "../../assets/images/sidebar/icons/React.svg";
-import GIT from "../../assets/images/sidebar/icons/GIT.svg";
-import GitHub from "../../assets/images/sidebar/icons/GitHub.svg";
-import Instagram from "../../assets/images/sidebar/icons/Instagram.svg";
-import Facebook from "../../assets/images/sidebar/icons/Facebook.svg";
-import Telegram from "../../assets/images/sidebar/icons/Telegram.svg";
-import TypeScript from "../../assets/images/sidebar/icons/typescript.svg";
-import antDesign from "../../assets/images/sidebar/icons/antDesign.svg";
+import { tools, socialLinks, personalInfo, profile } from "../../utils/sidebarData/sidebarData";
 
 import "./Sidebar.scss";
-
 
 const Sidebar = () => {
     const location = useLocation();
@@ -26,65 +12,53 @@ const Sidebar = () => {
         <div className="sidebar">
             <div className="sidebar__profile">
                 <img
-                    src={I}
-                    alt="I"
+                    src={profile.image.src}
+                    alt={profile.image.alt}
                     className="sidebar__profile-image"
                 />
-                <h2 className="sidebar__profile-name">Sebastian</h2>
-                <p className="sidebar__profile-role">Frontend Developer</p>
+                <h2 className="sidebar__profile-name">{profile.name}</h2>
+                <p className="sidebar__profile-role">{profile.role}</p>
             </div>
             <div className="sidebar__line"></div>
 
             <div className={`sidebar__block ${isAboutPage ? "sidebar__visible" : "sidebar__hidden"}`}>
-                <div className="sidebar__info">
-                    <span className="sidebar__info-label">Gender: </span>
-                    <span className="sidebar__info-value">Male</span>
+                <div className="sidebar__visible-about">
+                    {personalInfo.map((item, index) => (
+                        <div className="sidebar__info" key={index}>
+                            <span className="sidebar__info-label">{item.label}: </span>
+                            <span className="sidebar__info-value">{item.value}</span>
+                        </div>
+                    ))}
                 </div>
 
-                <div className="sidebar__info">
-                    <span className="sidebar__info-label">Nationality: </span>
-                    <span className="sidebar__info-value">Moldovan</span>
-                </div>
-
-                <div className="sidebar__info">
-                    <span className="sidebar__info-label">Date of birth: </span>
-                    <span className="sidebar__info-value">08.06.2003</span>
-                </div>
             </div>
 
             <div className={`sidebar__block ${isAboutPage ? "sidebar__hidden" : "sidebar__visible"}`}>
                 <h3 className="sidebar__title">Tools i work with</h3>
-                <div className="sidebar__img">
-                    <img src={HTML} alt="HTML" className="sidebar__icons"/>
-                    <img src={CSS} alt="CSS" className="sidebar__icons"/>
-                    <img src={JS} alt="JS" className="sidebar__icons"/>
-                    <img src={SCSS} alt="SCSS" className="sidebar__icons"/>
-                    <img src={antDesign} alt="antDesign" className="sidebar__icons"/>
-                </div>
-
-                <div className="sidebar__img">
-                    <img src={React} alt="React" className="sidebar__icons"/>
-                    <img src={TypeScript} alt="TypeScript" className="sidebar__icons"/>
-                    <img src={Figma} alt="Figma" className="sidebar__icons"/>
-                    <img src={GIT} alt="GIT" className="sidebar__icons"/>
-                    <img src={GitHub} alt="GitHub" className="sidebar__icons"/>
-                </div>
+                
+                {tools.map((row, index) => (
+                    <div className="sidebar__img" key={index}>
+                        {row.map((tool, i) => (
+                        <img key={i} src={tool.src} alt={tool.alt} className="sidebar__icons" />
+                        ))}
+                    </div>
+                ))}
 
                 <div className="sidebar__contact">
                     <h3 className="sidebar__contact-title">Social Media</h3>
                     <div className="sidebar__contact-block">
-                        <a href="https://www.instagram.com/seby__sw/" className="sidebar__contact-link" data-name="Instagram" target="_blank">
-                            <img src={Instagram} alt="Instagram" className="sidebar__contact-icons"/>
-                        </a>
-                        <a href="https://t.me/Sebi_developer" className="sidebar__contact-link" data-name="Telegram" target="_blank">
-                            <img src={Telegram} alt="Telegram" className="sidebar__contact-icons"/>
-                        </a>
-                        <a href="https://www.facebook.com/sebastian.gutium" className="sidebar__contact-link" data-name="Facebook" target="_blank">
-                            <img src={Facebook} alt="Facebook" className="sidebar__contact-icons"/>
-                        </a>
-                        <a href="https://github.com/SebiDeveloper" className="sidebar__contact-link" data-name="Github" target="_blank">
-                            <img src={GitHub} alt="Github" className="sidebar__contact-icons"/>
-                        </a>
+                        {socialLinks.map((link, index) => (
+                            <a
+                                key={index}
+                                href={link.href}
+                                className="sidebar__contact-link"
+                                data-name={link.name}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                <img src={link.icon} alt={link.alt} className="sidebar__contact-icons" />
+                            </a>
+                        ))}
                     </div>
                 </div>
             </div>

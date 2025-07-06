@@ -139,6 +139,10 @@
     }
     &__visible {
         display: block;
+        &-about {
+            margin: 0 auto;
+            width: 220px;
+        }
     }
 
     // Media

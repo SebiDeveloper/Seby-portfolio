@@ -15,6 +15,7 @@ import css from "../../assets/images/sidebar/icons/CSS.svg";
 import scss from "../../assets/images/sidebar/icons/SCSS.svg";
 import js from "../../assets/images/sidebar/icons/JS.svg"; 
 import react from "../../assets/images/sidebar/icons/React.svg";
+import ts from "../../assets/images/sidebar/icons/typescript.svg";
 import antDesign from "../../assets/images/sidebar/icons/antDesign.svg";
 
 const portfolioData = [
@@ -69,7 +70,7 @@ const portfolioData = [
       slug: "product-catalog-multiple-page-application",
       category: "Web applications",
       image: productCatalog,
-      technologies: [html, scss, js, react],
+      technologies: [html, scss, js, react, ts],
       link: "https://product-catalog-gilt.vercel.app/",
     },
     {
