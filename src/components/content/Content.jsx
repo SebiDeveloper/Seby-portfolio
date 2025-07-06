@@ -1,7 +1,5 @@
 import "./Content.scss";
 
-import Footer from "../footer/Footer";
-
 const Content = () => {
 
     return (
