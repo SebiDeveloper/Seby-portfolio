@@ -10,11 +10,6 @@ const ProjectDetails = () => {
 
     const project = portfolioData.find((item) => item.slug === slug);
 
-
-    // if (!project) {
-    //     return <h2>The project was not found.</h2>;
-    // }
-
     if (!project) {
         return (
             <div className="project project__not-found">
