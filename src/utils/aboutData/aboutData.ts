@@ -1,4 +1,9 @@
-const aboutData = [
+interface AboutItem {
+  icon: string;
+  title: string;
+}
+
+const aboutData: AboutItem[] = [
     {
       icon: "UI",
       title: "UI Development"
