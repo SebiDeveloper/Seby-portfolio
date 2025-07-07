@@ -5,7 +5,7 @@ import { Divide as Hamburger } from "hamburger-react";
 
 import "./HamburgerMenu.scss";
 
-type NavItem = {
+export type NavItem = {
     name: string;
     path: string;
 }
