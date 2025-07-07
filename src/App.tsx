@@ -1,3 +1,4 @@
+import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 // Components
@@ -18,7 +19,7 @@ import './App.css'
 import "./components/content/Content.scss";
 import "./assets/styles/_fonts.scss";
 
-const App = () => {
+const App: React.FC = () => {
   return (
     <Router>
       <div className="app">
