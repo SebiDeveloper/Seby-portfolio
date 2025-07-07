@@ -1,14 +1,16 @@
+import React from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
+import { Project } from "../../utils/portfolioData/portfolioData";
 
 import portfolioData from "../../utils/portfolioData/portfolioData";
 import "./ProjectDetails.scss";
 
-const ProjectDetails = () => {
-    const { slug } = useParams();
+const ProjectDetails: React.FC = () => {
+    const { slug } = useParams<{ slug: string }>();
     const navigate = useNavigate();
 
-    const project = portfolioData.find((item) => item.slug === slug);
+    const project: Project | undefined = portfolioData.find((item) => item.slug === slug);
 
     if (!project) {
         return (
