@@ -1,10 +1,39 @@
+import React from "react";
 import { useLocation } from "react-router-dom";
 
 import { tools, socialLinks, personalInfo, profile } from "../../utils/sidebarData/sidebarData";
 
 import "./Sidebar.scss";
 
-const Sidebar = () => {
+interface ImageData {
+    src: string;
+    alt: string;
+}
+
+interface Profile {
+    image: ImageData;
+    name: string;
+    role: string;
+}
+
+interface PersonalInfo {
+    label: string;
+    value: string;
+}
+
+interface Tool {
+    src: string;
+    alt: string;
+}
+
+interface SocialLink {
+    href: string;
+    name: string;
+    icon: string;
+    alt: string;
+}
+
+const Sidebar: React.FC = () => {
     const location = useLocation();
     const isAboutPage = location.pathname === "/about";
 
@@ -23,7 +52,7 @@ const Sidebar = () => {
 
             <div className={`sidebar__block ${isAboutPage ? "sidebar__visible" : "sidebar__hidden"}`}>
                 <div className="sidebar__visible-about">
-                    {personalInfo.map((item, index) => (
+                    {personalInfo.map((item: PersonalInfo, index: number) => (
                         <div className="sidebar__info" key={index}>
                             <span className="sidebar__info-label">{item.label}: </span>
                             <span className="sidebar__info-value">{item.value}</span>
@@ -36,7 +65,7 @@ const Sidebar = () => {
             <div className={`sidebar__block ${isAboutPage ? "sidebar__hidden" : "sidebar__visible"}`}>
                 <h3 className="sidebar__title">Tools i work with</h3>
                 
-                {tools.map((row, index) => (
+                {tools.map((row: Tool[], index: number) => (
                     <div className="sidebar__img" key={index}>
                         {row.map((tool, i) => (
                         <img key={i} src={tool.src} alt={tool.alt} className="sidebar__icons" />
@@ -47,7 +76,7 @@ const Sidebar = () => {
                 <div className="sidebar__contact">
                     <h3 className="sidebar__contact-title">Social Media</h3>
                     <div className="sidebar__contact-block">
-                        {socialLinks.map((link, index) => (
+                        {socialLinks.map((link: SocialLink, index: number) => (
                             <a
                                 key={index}
                                 href={link.href}
