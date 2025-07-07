@@ -16,7 +16,34 @@ import Instagram from "../../assets/images/sidebar/icons/Instagram.svg";
 import Facebook from "../../assets/images/sidebar/icons/Facebook.svg";
 import Telegram from "../../assets/images/sidebar/icons/Telegram.svg";
 
-export const tools = [
+interface ToolItem {
+  src: string;
+  alt: string;
+}
+
+interface socialLink {
+  href: string;
+  alt: string;
+  icon: string;
+  name: string;
+}
+
+interface PersonalInfo {
+  label: string;
+  value: string;
+}
+
+interface Profile {
+  name: string;
+  role: string;
+  image: {
+    src: string;
+    alt: string;
+  }
+}
+
+
+export const tools: ToolItem[][] = [
   [
     { src: HTML, alt: "HTML" },
     { src: CSS, alt: "CSS" },
@@ -33,7 +60,7 @@ export const tools = [
   ],
 ];
 
-export const socialLinks = [
+export const socialLinks: socialLink[] = [
   {
     href: "https://www.instagram.com/seby__sw/",
     alt: "Instagram",
@@ -60,13 +87,13 @@ export const socialLinks = [
   },
 ];
 
-export const personalInfo = [
+export const personalInfo: PersonalInfo[] = [
     {label: "Gender", value: "Male"},
     {label: "Nationality", value: "Moldovan"},
     {label: "Date of birth", value: "08.06.2003"},
 ];
 
-export const profile = {
+export const profile: Profile = {
   name: "Sebastian",
   role: "Frontend Developer",
   image: {
