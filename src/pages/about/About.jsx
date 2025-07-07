@@ -40,7 +40,7 @@ const About = () => {
     </Helmet>
 
       <p className="about__description">
-        I am a beginner Frontend Developer with a passion for creating beautiful and functional web interfaces. I enjoy learning new technologies and constantly improving my skills in JavaScript, React, and modern web design. My goal is to build responsive, user-friendly websites that provide a great experience for everyone. Although I am at the beginning of my journey, I am eager to take on challenges and grow as a developer.
+        I am a beginner Frontend Developer with a passion for creating beautiful and functional web interfaces. I enjoy learning new technologies and constantly improving my skills in JavaScript, React, TypeScript and modern web design. My goal is to build responsive, user-friendly websites that provide a great experience for everyone. Although I am at the beginning of my journey, I am eager to take on challenges and grow as a developer.
       </p>
       <h2 className="about__subtitle">What I Do</h2>
 
