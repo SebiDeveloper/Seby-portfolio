@@ -5,8 +5,8 @@ import { Helmet } from "react-helmet-async";
 
 import Spinner from "../../components/spinner/Spinner";
 
-// import I from "../../assets/images/contact/I.jpg";
-const I: string = ("../../assets/images/contact/I.jpg");
+import I from "../../assets/images/contact/I.jpg";
+// const I: string = ("../../assets/images/contact/I.jpg");
 
 import "./Contact.scss";
 
