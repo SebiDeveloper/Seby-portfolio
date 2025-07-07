@@ -1,8 +1,10 @@
+import React from "react";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination } from "swiper/modules";
 import { Helmet } from "react-helmet-async";
+import { Project } from "../../utils/portfolioData/portfolioData";
 
 import portfolioData from "../../utils/portfolioData/portfolioData";
 
@@ -10,16 +12,16 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "./Portfolio.scss";
 
-const Portfolio = () => {
-  const categories = ["All", "Websites", "Web applications"];
+const Portfolio: React.FC = () => {
+  const categories: string[] = ["All", "Websites", "Web applications"];
 
-  const [selectedCategory, setSelectedCategory] = useState(() => {
+  const [selectedCategory, setSelectedCategory] = useState<string>(() => {
     return localStorage.getItem("selectedCategory") || "All";
   });
 
-  const [scrollProgress, setScrollProgress] = useState(0);
+  const [scrollProgress, setScrollProgress] = useState<number>(0);
 
-  const filteredProjects =
+  const filteredProjects: Project[] =
     selectedCategory === "All"
       ? portfolioData
       : portfolioData.filter(
@@ -28,14 +30,17 @@ const Portfolio = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      const navbarList = document.querySelector(".portfolio__navbar-list");
+      const navbarList = document.querySelector<HTMLUListElement>(".portfolio__navbar-list");
+
+      if (!navbarList) return;
+
       const scrollWidth = navbarList.scrollWidth - navbarList.clientWidth;
       const scrollPosition = navbarList.scrollLeft;
       const progress = (scrollPosition / scrollWidth) * 100;
       setScrollProgress(progress);
     };
 
-    const navbarList = document.querySelector(".portfolio__navbar-list");
+    const navbarList = document.querySelector<HTMLUListElement>(".portfolio__navbar-list");
     if (navbarList) {
       navbarList.addEventListener("scroll", handleScroll);
     }
