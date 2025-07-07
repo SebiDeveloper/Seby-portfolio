@@ -18,7 +18,17 @@ import react from "../../assets/images/sidebar/icons/React.svg";
 import ts from "../../assets/images/sidebar/icons/typescript.svg";
 import antDesign from "../../assets/images/sidebar/icons/antDesign.svg";
 
-const portfolioData = [
+export interface Project {
+  id: number;
+  title: string ;
+  slug: string;
+  category: "Websites" | "Web applications";
+  image: string;
+  technologies: string[];
+  link: string;
+}
+
+const portfolioData: Project[] = [
     {
       id: 1,
       title: "Woman",
