@@ -1,9 +1,11 @@
+import React from "react";
 import { NavLink, useLocation } from "react-router-dom";
+import { NavItem } from "../hamburger/HamburgerMenu";
 import "./Navbar.scss";
 
-const Navbar = () => {
+const Navbar: React.FC = () => {
     const location = useLocation();
-    const navItems = [
+    const navItems: NavItem[] = [
         { name: "About", path: "/about" },
         { name: "Resume", path: "/resume" },
         { name: "Portfolio", path: "/portfolio" },
@@ -21,7 +23,7 @@ const Navbar = () => {
                         <li key={name} className="navbar__item">
                             <NavLink
                                 to={path}
-                                className={({ isActive }) =>
+                                className={({ isActive }: { isActive: boolean }) =>
                                     `navbar__link ${(isActive || isPortfolioActive) ? "navbar__item-active" : ""}`
                                 }
                                 end={path !== "/portfolio"}
