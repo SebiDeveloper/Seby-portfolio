@@ -1,29 +1,36 @@
 import React, { useState, useEffect } from "react";
-import { useForm } from "react-hook-form";
+import { useForm, SubmitHandler } from "react-hook-form";
 import emailjs from "@emailjs/browser";
 import { Helmet } from "react-helmet-async";
 
 import Spinner from "../../components/spinner/Spinner";
 
-import I from "../../assets/images/contact/I.jpg";
+// import I from "../../assets/images/contact/I.jpg";
+const I: string = ("../../assets/images/contact/I.jpg");
 
 import "./Contact.scss";
 
-const Contact = () => {
-    const { register, handleSubmit, formState, reset} = useForm({
+interface FormData {
+    name: string;
+    email: string;
+    textarea: string;
+}
+
+const Contact: React.FC = () => {
+    const { register, handleSubmit, formState, reset} = useForm<FormData>({
         mode: "onChange",
     });
 
-    const [message, setMessage] = useState("");
-    const [isError, setIsError] = useState(false);
-    const [isLoading, setIsLoading] = useState(false); //
+    const [message, setMessage] = useState<string>("");
+    const [isError, setIsError] = useState<boolean>(false);
+    const [isLoading, setIsLoading] = useState<boolean>(false); //
 
 
     const nameError = formState.errors["name"]?.message;
     const emailError = formState.errors["email"]?.message;
     const textareaError = formState.errors["textarea"]?.message;
 
-    const validateName = (value) => {
+    const validateName = (value: string): true | string => {
         const regex = /^[A-Za-z ]*$/;
         if (value.length > 20) {
             return "Maximum 20 letters"
@@ -40,7 +47,7 @@ const Contact = () => {
         return true;
       };
 
-    const validateTextarea = (value) => {
+    const validateTextarea = (value: string): true | string => {
         if (value.length > 200) {
             return "Maximum 200 letters or characters";
         }
@@ -53,7 +60,7 @@ const Contact = () => {
         return true;
     };
 
-    const onSubmit = async (data) => {
+    const onSubmit: SubmitHandler<FormData> = async (data) => {
         setIsLoading(true);
         setMessage("");
         try {
@@ -114,84 +121,84 @@ const Contact = () => {
             <form className="contact__form" onSubmit={handleSubmit(onSubmit)}>
                 <h2 className="contact__title">Write to me and I will contact you!</h2>
 
+                {/* Nume */}
                 <div className="contact__row">
                     <div className="contact__group">
-                    <input 
+                    <input
                         type="text"
-                        name="name"
-                        className="contact__input" 
+                        className="contact__input"
                         placeholder=" "
                         {...register("name", {
-                            validate: validateName,
-                            onChange: (e) => {
-                                if (e.target.value.length > 20) {
-                                    e.target.value = e.target.value.slice(0, 20);
-                                }
+                        validate: validateName,
+                        onChange: (e: React.ChangeEvent<HTMLInputElement>) => {
+                            // Limitează la max 20 caractere
+                            if (e.target.value.length > 20) {
+                            e.target.value = e.target.value.slice(0, 20);
                             }
+                        },
                         })}
                     />
                     <label className="contact__label">Name</label>
                     </div>
                 </div>
-
                 {nameError && <p className="contact__error">{nameError}</p>}
 
+                {/* Email */}
                 <div className="contact__row">
                     <div className="contact__group">
-                    <input 
+                    <input
                         type="email"
-                        name="email"
-                        className="contact__input" 
+                        className="contact__input"
                         placeholder=" "
                         {...register("email", {
-                            required: "This field is required",
-                            pattern: {
-                                value: /^[A-Z0-9._%+-]+@[A-Z0-9.0]+\.[A-Z]{2,4}$/i,
-                                message: "Invalid email address"
-                            }
+                        required: "This field is required",
+                        pattern: {
+                            value: /^[A-Z0-9._%+-]+@[A-Z0-9.]+\.[A-Z]{2,4}$/i,
+                            message: "Invalid email address",
+                        },
                         })}
                     />
                     <label className="contact__label">Email</label>
                     </div>
                 </div>
-
                 {emailError && <p className="contact__error">{emailError}</p>}
 
+                {/* Mesaj */}
                 <div className="contact__row">
                     <div className="contact__group">
-                    <textarea 
+                    <textarea
                         className="contact__textarea"
-                        name="message" 
                         placeholder=" "
                         {...register("textarea", {
-                            validate: validateTextarea,
-                            onChange: (e) => {
-                                if (e.target.value.length > 200) {
-                                    e.target.value = e.target.value.slice(0, 200);
-                                }
+                        validate: validateTextarea,
+                        onChange: (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+                            // Limitează la max 200 caractere
+                            if (e.target.value.length > 200) {
+                            e.target.value = e.target.value.slice(0, 200);
                             }
+                        },
                         })}
                     />
                     <label className="contact__label">Message</label>
                     </div>
                 </div>
-
                 {textareaError && <p className="contact__error">{textareaError}</p>}
 
+                {/* Buton / Spinner */}
                 {!isLoading ? (
                     <button className="contact__btn text-upper" type="submit">
-                        Send
+                    Send
                     </button>
                 ) : (
                     <Spinner />
                 )}
 
+                {/* Mesaj de status */}
                 {message && (
                     <div className={`contact__message ${isError ? "contact__error-sent" : "contact__success"}`}>
-                        {message}
+                    {message}
                     </div>
                 )}
-                
             </form>
         </div>
     )
