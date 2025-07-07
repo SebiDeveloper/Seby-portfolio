@@ -1,8 +1,9 @@
+import React from "react";
 import { Helmet } from "react-helmet-async";
 
 import "./Resume.scss";
 
-const Resume = () => {
+const Resume: React.FC = () => {
   return (
     <section className="resume">
 
