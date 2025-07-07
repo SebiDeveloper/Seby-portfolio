@@ -1,14 +1,20 @@
+import React from "react";
 import { useState, useEffect } from "react";
 import { NavLink, useLocation } from "react-router-dom";
 import { Divide as Hamburger } from "hamburger-react";
 
 import "./HamburgerMenu.scss";
 
-const HamburgerMenu = () => {
-    const [isOpen, setOpen] = useState(false);
+type NavItem = {
+    name: string;
+    path: string;
+}
+
+const HamburgerMenu: React.FC = () => {
+    const [isOpen, setOpen] = useState<boolean>(false);
     const location = useLocation();
 
-    const navItems = [
+    const navItems: NavItem[] = [
         { name: "ABOUT 🧑‍💻", path: "/about" },
         { name: "RESUME 📱", path: "/resume" },
         { name: "PORTFOLIO  💼", path: "/portfolio" },
@@ -29,7 +35,9 @@ const HamburgerMenu = () => {
 
     return (
         <div className="hamburger">
-            <Hamburger toggled={isOpen} toggle={setOpen} className="hamburger__button" />
+            <div className="hamburger__button">
+                <Hamburger toggled={isOpen} toggle={setOpen} />
+            </div>
 
             <div className={`hamburger__menu ${isOpen ? "hamburger__menu--open" : ""}`}>
 
@@ -44,7 +52,7 @@ const HamburgerMenu = () => {
                             <li key={name} className="hamburger__item">
                                 <NavLink
                                     to={path}
-                                    className={({ isActive }) =>
+                                    className={({ isActive }: {isActive: boolean}) =>
                                         `hamburger__link ${(isActive || isPortfolioActive) ? "hamburger__link--active" : ""}`
                                     }
                                     end={path !== "/portfolio"}
