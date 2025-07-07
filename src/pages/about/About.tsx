@@ -1,3 +1,4 @@
+import React, { ReactNode } from "react";
 import { useEffect, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination } from "swiper/modules";
@@ -10,8 +11,13 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "./About.scss";
 
-const About = () => {
-  const [isMobile, setIsMobile] = useState(window.innerWidth <= 576);
+interface AboutItem {
+  icon: ReactNode;
+  title: string;
+}
+
+const About: React.FC = () => {
+  const [isMobile, setIsMobile] = useState<boolean>(window.innerWidth <= 576);
 
   useEffect(() => {
     const handleResize = () => {
@@ -23,7 +29,7 @@ const About = () => {
 
   const pagination = {
     clickable: true,
-    renderBullet: (index, className) =>
+    renderBullet: (index: number, className: string) =>
       `<span class="${className}">${index + 1}</span>`,
   };
 
@@ -51,7 +57,7 @@ const About = () => {
             modules={[Pagination]}
             className="about__swiper"
             >
-            {aboutData.map((item, index) => (
+            {aboutData.map((item: AboutItem, index: number) => (
                 <SwiperSlide key={index}>
                 <div className="about__card">
                     <div className="about__icon">{item.icon}</div>
@@ -63,7 +69,7 @@ const About = () => {
       </div>
       ) : (
         <div className="about__block">
-          {aboutData.map((item, index) => (
+          {aboutData.map((item: AboutItem, index: number) => (
             <div className="about__card" key={index}>
               <div className="about__icon">{item.icon}</div>
               <div className="about__title">{item.title}</div>
